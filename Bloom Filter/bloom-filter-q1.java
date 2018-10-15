@@ -36,7 +36,7 @@ class BloomFilter
 			str = web[i];
 			
 			
-				int x = h1(str,n);
+				int x = h1(str,n); 
 				int y = h2(str,n);
 				if(arr[x]==0){
 					arr[x]=1;
