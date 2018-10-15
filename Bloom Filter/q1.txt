@@ -1,0 +1,57 @@
+----------------------"CODECHEF DATA SCIENCE PROGRAM"----------------
+
+Chef want to design a filter that should be able to block all the websites which are in the list.
+The number of websites in the list are very high and there is a limitation of the storage of the
+list items and real time high processing speed. Chef want to check the new website whether it
+is in the list or not in the list. The response is expected as “May be in the list” or “definitely not
+in the list”. When the answer is “May be in the list” means that there may be a few false positive
+errors compensating the storage size and large number of comparisons. But, when the answer
+is “definite not in the list” means that there is no false negative.
+There are N bits of the filter. The given list of websites having number of websites W for
+
+blocking is in string with maximum length L for each. The name of the websites are case in-
+sensitive. Each letter of the website will be first converted into its ASCII value and will
+
+calculate two hash functions: (a) H1: Find the sum of all ASCII value of a website letters then
+calculate mod N; (b) H2: First calculate mod 13 for each ASCII value for a website letter then
+perform first hash function (a). Now make H1th and H2th serial number bit one in the filter.
+Note that this process will be repeated for every website name which is in the list and if any bit
+of the filter is made one that cannot be made zero for the next website.
+This way chef want to develop a bloom filter. Test the filter by giving T websites as test cases.
+Input:
+First line of the input file contains number of bits, a single integer N for designing a filter
+Second line of input file contains the number of websites integer W to be blocked
+In next lines one by one blocked website (maximum L length) will be input in each separate line
+In next line, number of test cases, integer T will be input
+In next lines, one by one website for assessment will be input in each separate line
+Output:
+For each test case, output a single line containing the string either “May be” or “Definitely not”.
+Constraints:
+1 ≤ N ≤ 100
+1 ≤ W ≤ 30
+1 ≤ L ≤ 20
+1 ≤ T ≤ 1000000
+0 ≤ H1 ≤ N-1
+0 ≤ H2 ≤ N-1
+
+Example:
+Input:
+20
+7
+az.com
+mani.com
+suri.com
+weblink.org
+movie.net
+serial.ind
+queen.weebly.com
+4
+Mani.com
+Pakistansongs.com
+MoVIE.Net
+WeeBly.Com
+Output:
+May be
+Definitely not
+May be
+Definitely not
